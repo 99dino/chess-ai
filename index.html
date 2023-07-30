@@ -50,7 +50,7 @@
     ></script>
 
     <!-- Chess JS (slightly modified) -->
-    <script defer src="js/chess.js"></script>
+    <script defer src="chess.js"></script>
 
     <!-- Bootstrap JS -->
     <script
@@ -61,13 +61,13 @@
     ></script>
 
     <!-- Custom JS -->
-    <script defer src="js/main.js"></script>
+    <script defer src="main.js"></script>
   </head>
   <body>
     <main>
       <div class="container h-100">
         <div class="row align-items-center py-1 change h-100">
-            <div class="col-md-6 d-flex flex-column h-100 justify-content-evenly" style="background-color: white;">
+            <div class="col-md-6 d-flex flex-column h-100 justify-content-evenly">
                 <h1 class="text-align-center change">Chess Engine</h1>
                 <div class="row justify-content-center">
                     <span id="position-count change">0</span class="change"> &nbsp positions evaluated in &nbsp <span class="change" id="time">0</span>s.
@@ -176,6 +176,22 @@
                     <div class="col-md-12">
                         <h2>Status</h2>
                         <p><span id="status">No check, checkmate, or draw.</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 py-1 d-flex flex-column h-100 justify-content-evenly">
+                <div class="boardcontainer h-100 d-flex align-items-center justify-content-center">
+                    <div id="myBoard" class="w-100"></div>
+                </div>
+                <div class="row my-3 text-align-center">
+                    <div class="col-md-4 my-2">
+                        <button class="btn btn-danger" id="undoBtn">Undo</button>
+                    </div>
+                    <div class="col-md-4 my-2">
+                        <button class="btn btn-primary" id="startBtn">Start Position</button>
+                    </div>
+                    <div class="col-md-4 my-2">
+                        <button class="btn btn-success" id="redoBtn">Redo</button>
                     </div>
                 </div>
             </div>
