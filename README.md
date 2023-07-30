@@ -2,7 +2,7 @@
 
 Inspired by N-queen ( standard backtrack problem ), Let me present Chess-engine that follow the backtrack alogrithm plus some optimization methods.
 
-## Aboutc
+## About Chess-AI
 
 Chess-AI is a simple chess AI in JavaScript.
 
