@@ -9,8 +9,8 @@ Chess-AI is a simple chess AI in JavaScript.
 The primary concern of chess-ai is the decision-making part of the application.
 All functionality outside the scope of the AI are implemented using external libraries:
 
-- Chessboard GUI: Using the chessboard.js API
-- Game Mechanics: Using the chess.js API
+- Chessboard GUI: Using the chessboard.js library
+- Game Mechanics: Using the chess.js library
 
 The AI uses the minimax algorithm, which is optimised by alpha-beta pruning.
 
