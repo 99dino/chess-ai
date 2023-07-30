@@ -1,7 +1,56 @@
+body {
+  /* background-image: url("img/chess_bg1.gif"); */
+  background-size: cover;
+  height: 100vh;
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
 .text-align-center {
   text-align: center;
 }
 
 .justify-content-evenly {
   justify-content: space-evenly;
+}
+
+.text-align-center {
+  text-align: center;
+}
+#myBoard {
+  max-width: 100%;
+  height: auto;
+}
+
+.highlight-white {
+  box-shadow: inset 0 0 3px 3px yellow;
+}
+
+.highlight-black {
+  box-shadow: inset 0 0 3px 3px blue;
+}
+
+.highlight-hint {
+  box-shadow: inset 0 0 3px 3px red;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.no-outline:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+.card {
+  background-color: rgb(255, 255, 240);
+}
+.change {
+  color: rgb(56, 56, 56);
+  font-weight: 701;
 }
