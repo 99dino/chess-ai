@@ -1,0 +1,49 @@
+/*! chessboard.js v1.0.0 | (c) 2019 Chris Oakman | MIT License chessboardjs.com/license */
+
+/* Maintainig the copyright and MIT License ,With due respect - above version is slightly modified according to me(developer - 99dino) for personal(project) use only. */
+.clearfix-7da63 {
+  clear: both;
+}
+.board-b72b1 {
+  border: 2px solid #404040;
+  box-sizing: content-box;
+}
+.square-55d63 {
+  float: left;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.white-1e1d7 {
+  /* background-image: linear-gradient(60deg, #1c5424, #51ab5e); */
+  background-color: #f1dfc3;
+  color: #b69071;
+}
+.black-3c85d {
+  /* background-image: linear-gradient(60deg, #a8a1a1, #666161); */
+
+  background-color: #b69071;
+  color: #f1dfc3;
+}
+.highlight1-32417,
+.highlight2-9c5d2 {
+  box-shadow: inset 0 0 3px 3px #333;
+}
+.notation-322f9 {
+  cursor: default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  position: absolute;
+}
+.alpha-d2270 {
+  bottom: 1px;
+  right: 3px;
+}
+.numeric-fc462 {
+  top: 2px;
+  left: 2px;
+}

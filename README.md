@@ -4,7 +4,7 @@ Inspired by N-queen ( standard backtrack problem ), Let me present Chess-engine 
 
 ## About Chess-AI
 
-Chess-AI is a simple chess AI in JavaScript.
+![![Alt text](image.png)](image.png)Chess-AI is a simple chess AI in JavaScript.
 
 The primary concern of chess-ai is the decision-making part of the application.
 All functionality outside the scope of the AI are implemented using external libraries:
