@@ -203,4 +203,25 @@ function evaluateBoard(game, move, prevSum, color) {
         pstSelf[move.color][move.captured][to[0]][to[1]];
     }
   }
+  if (move.flags.includes("p")) {
+    // NOTE: promote to queen for simplicity
+    move.promotion = "q";
+
+    // Our piece was promoted (good for us)
+    if (move.color === color) {
+      prevSum -=
+        weights[move.piece] + pstSelf[move.color][move.piece][from[0]][from[1]];
+      prevSum +=
+        weights[move.promotion] +
+        pstSelf[move.color][move.promotion][to[0]][to[1]];
+    }
+    // Opponent piece was promoted (bad for us)
+    else {
+      prevSum +=
+        weights[move.piece] + pstSelf[move.color][move.piece][from[0]][from[1]];
+      prevSum -=
+        weights[move.promotion] +
+        pstSelf[move.color][move.promotion][to[0]][to[1]];
+    }
+  }
 }
