@@ -554,3 +554,30 @@ $("#undoBtn").on("click", function () {
     alert("Nothing to undo.");
   }
 });
+
+function redo() {
+  game.move(undo_stack.pop());
+  board.position(game.fen());
+}
+
+$("#redoBtn").on("click", function () {
+  if (undo_stack.length >= 2) {
+    // Redo twice: Player's last move, followed by opponent's last move
+    redo();
+    window.setTimeout(function () {
+      redo();
+    }, 250);
+  } else {
+    alert("Nothing to redo.");
+  }
+});
+document.addEventListener("keydown", (event) => {
+  if (event.ctrlKey && event.key === "z") {
+    //   console.log("Undo!");
+    event.preventDefault();
+    document.getElementById("undoBtn").click();
+  } else if (event.ctrlKey && event.key === "y") {
+    event.preventDefault();
+    document.getElementById("redoBtn").click();
+  }
+});
