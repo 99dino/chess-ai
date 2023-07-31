@@ -460,3 +460,23 @@ function compVsComp(color) {
     }, 250);
   }
 }
+
+/*
+ * Resets the game to its initial state.
+ */
+function reset() {
+  game.reset();
+  globalSum = 0;
+  $board.find("." + squareClass).removeClass("highlight-white");
+  $board.find("." + squareClass).removeClass("highlight-black");
+  $board.find("." + squareClass).removeClass("highlight-hint");
+  board.position(game.fen());
+  $("#advantageColor").text("Neither side");
+  $("#advantageNumber").text(globalSum);
+
+  // Kill the Computer vs. Computer callback
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
+}
