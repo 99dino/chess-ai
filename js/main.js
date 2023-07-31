@@ -179,4 +179,14 @@ function evaluateBoard(game, move, prevSum, color) {
     8 - parseInt(move.to[1]),
     move.to.charCodeAt(0) - "a".charCodeAt(0),
   ];
+  // Change endgame behavior for kings
+  if (prevSum < -1500) {
+    if (move.piece === "k") {
+      move.piece = "k_e";
+    }
+    // Kings can never be captured
+    // else if (move.captured === 'k') {
+    //   move.captured = 'k_e';
+    // }
+  }
 }
