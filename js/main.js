@@ -223,5 +223,16 @@ function evaluateBoard(game, move, prevSum, color) {
         weights[move.promotion] +
         pstSelf[move.color][move.promotion][to[0]][to[1]];
     }
+  } else {
+    // The moved piece still exists on the updated board, so we only need to update the position value
+    if (move.color !== color) {
+      prevSum += pstSelf[move.color][move.piece][from[0]][from[1]];
+      prevSum -= pstSelf[move.color][move.piece][to[0]][to[1]];
+    } else {
+      prevSum -= pstSelf[move.color][move.piece][from[0]][from[1]];
+      prevSum += pstSelf[move.color][move.piece][to[0]][to[1]];
+    }
   }
+
+  return prevSum;
 }
