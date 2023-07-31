@@ -140,3 +140,20 @@ var pst_b = {
 
 var pstOpponent = { w: pst_b, b: pst_w };
 var pstSelf = { w: pst_w, b: pst_b };
+
+/*
+ * Evaluates the board at this point in time,
+ * using the material weights and piece square tables.
+ */
+function evaluateBoard(game, move, prevSum, color) {
+  if (game.in_checkmate()) {
+    // Opponent is in checkmate (good for us)
+    if (move.color === color) {
+      return 10 ** 8;
+    }
+    // Our king's in checkmate (bad for us)
+    else {
+      return -(10 ** 8);
+    }
+  }
+}
