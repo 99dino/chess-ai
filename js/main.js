@@ -169,4 +169,14 @@ function evaluateBoard(game, move, prevSum, color) {
       prevSum -= 50;
     }
   }
+  // from (x,y)
+  var from = [
+    8 - parseInt(move.from[1]),
+    move.from.charCodeAt(0) - "a".charCodeAt(0),
+  ];
+  // to(x,y)
+  var to = [
+    8 - parseInt(move.to[1]),
+    move.to.charCodeAt(0) - "a".charCodeAt(0),
+  ];
 }
