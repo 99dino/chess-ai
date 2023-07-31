@@ -156,4 +156,7 @@ function evaluateBoard(game, move, prevSum, color) {
       return -(10 ** 8);
     }
   }
+  if (game.in_draw() || game.in_threefold_repetition() || game.in_stalemate()) {
+    return 0;
+  }
 }
