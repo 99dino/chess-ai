@@ -14,11 +14,11 @@ var config = {
   draggable: true,
   position: "start",
   pieceTheme: "img/{piece}.png",
-  // onDragStart: onDragStart,
-  // onDrop: onDrop,
-  // onMouseoutSquare: onMouseoutSquare,
-  // onMouseoverSquare: onMouseoverSquare,
-  // onSnapEnd: onSnapEnd,
+  onDragStart: onDragStart,
+  onDrop: onDrop,
+  onMouseoutSquare: onMouseoutSquare,
+  onMouseoverSquare: onMouseoverSquare,
+  onSnapEnd: onSnapEnd,
 };
 
 var board = Chessboard("myBoard", config);
@@ -394,7 +394,8 @@ function getBestMove(game, color, currSum) {
   var moveTime = d2 - d;
   var positionsPerS = (positionCount * 1000) / moveTime;
 
-  $("#position-count").text(positionCount);
+  // document.querySelector("#position-count").textContent = positionCount;
+  // $("#position-count").text("hello");
   $("#time").text(moveTime / 1000);
   $("#positions-per-s").text(Math.round(positionsPerS));
 
@@ -417,11 +418,15 @@ function makeBestMove(color) {
   game.move(move);
   board.position(game.fen());
 
+  $board.find("." + squareClass).removeClass("highlight-black");
+  $board.find("." + squareClass).removeClass("highlight-white");
   if (color === "b") {
     checkStatus("black");
 
     // Highlight black move
     $board.find("." + squareClass).removeClass("highlight-black");
+    $board.find("." + squareClass).removeClass("highlight-white");
+
     $board.find(".square-" + move.from).addClass("highlight-black");
     squareToHighlight = move.to;
     colorToHighlight = "black";
@@ -434,6 +439,8 @@ function makeBestMove(color) {
 
     // Highlight white move
     $board.find("." + squareClass).removeClass("highlight-white");
+    $board.find("." + squareClass).removeClass("highlight-black");
+
     $board.find(".square-" + move.from).addClass("highlight-white");
     squareToHighlight = move.to;
     colorToHighlight = "white";
@@ -631,9 +638,10 @@ function onDrop(source, target) {
   globalSum = evaluateBoard(game, move, globalSum, "b");
   updateAdvantage();
 
-  // Highlight latest move
-  $board.find("." + squareClass).removeClass("highlight-white");
+  // unhighlighting black last move
+  $board.find("." + squareClass).removeClass("highlight-black");
 
+  // Highlight latest move
   $board.find(".square-" + move.from).addClass("highlight-white");
   squareToHighlight = move.to;
   colorToHighlight = "white";
