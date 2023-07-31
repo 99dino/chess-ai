@@ -511,3 +511,16 @@ $("#sicilianDefenseBtn").on("click", function () {
   game.load("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1");
   board.position(game.fen());
 });
+
+$("#startBtn").on("click", function () {
+  reset();
+});
+
+$("#compVsCompBtn").on("click", function () {
+  reset();
+  compVsComp("w");
+});
+
+$("#resetBtn").on("click", function () {
+  reset();
+});
