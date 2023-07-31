@@ -494,3 +494,20 @@ $("#ruyLopezBtn").on("click", function () {
     makeBestMove("b");
   }, 250);
 });
+
+$("#italianGameBtn").on("click", function () {
+  reset();
+  game.load(
+    "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1"
+  );
+  board.position(game.fen());
+  window.setTimeout(function () {
+    makeBestMove("b");
+  }, 250);
+});
+
+$("#sicilianDefenseBtn").on("click", function () {
+  reset();
+  game.load("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1");
+  board.position(game.fen());
+});
