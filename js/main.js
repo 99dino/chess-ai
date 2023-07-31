@@ -159,4 +159,14 @@ function evaluateBoard(game, move, prevSum, color) {
   if (game.in_draw() || game.in_threefold_repetition() || game.in_stalemate()) {
     return 0;
   }
+  if (game.in_check()) {
+    // Opponent is in check (good for us)
+    if (move.color === color) {
+      prevSum += 50;
+    }
+    // Our king's in check (bad for us)
+    else {
+      prevSum -= 50;
+    }
+  }
 }
