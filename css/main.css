@@ -5,7 +5,7 @@ body {
       rgba(255, 255, 255, 0.284),
       #f7f3f353
     ),
-    url("img/bg-chess.png");
+    url("../img/bg-chess.png");
   background-size: cover;
   height: 100vh;
   width: auto;
