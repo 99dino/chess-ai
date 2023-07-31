@@ -524,3 +524,33 @@ $("#compVsCompBtn").on("click", function () {
 $("#resetBtn").on("click", function () {
   reset();
 });
+
+// undo and redo feature
+var undo_stack = [];
+
+function undo() {
+  var move = game.undo();
+  undo_stack.push(move);
+
+  // Maintain a maximum stack size
+  if (undo_stack.length > STACK_SIZE) {
+    undo_stack.shift();
+  }
+  board.position(game.fen());
+}
+
+$("#undoBtn").on("click", function () {
+  if (game.history().length >= 2) {
+    $board.find("." + squareClass).removeClass("highlight-white");
+    $board.find("." + squareClass).removeClass("highlight-black");
+    $board.find("." + squareClass).removeClass("highlight-hint");
+
+    // Undo twice: Opponent's latest move, followed by player's latest move
+    undo();
+    window.setTimeout(function () {
+      undo();
+    }, 250);
+  } else {
+    alert("Nothing to undo.");
+  }
+});
