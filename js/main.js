@@ -400,3 +400,46 @@ function getBestMove(game, color, currSum) {
 
   return [bestMove, bestMoveValue];
 }
+
+/*
+ * Makes the best legal move for the given color.
+ */
+function makeBestMove(color) {
+  if (color === "b") {
+    var move = getBestMove(game, color, globalSum)[0];
+  } else {
+    var move = getBestMove(game, color, -globalSum)[0];
+  }
+
+  globalSum = evaluateBoard(game, move, globalSum, "b");
+  updateAdvantage();
+
+  game.move(move);
+  board.position(game.fen());
+
+  if (color === "b") {
+    checkStatus("black");
+
+    // Highlight black move
+    $board.find("." + squareClass).removeClass("highlight-black");
+    $board.find(".square-" + move.from).addClass("highlight-black");
+    squareToHighlight = move.to;
+    colorToHighlight = "black";
+
+    $board
+      .find(".square-" + squareToHighlight)
+      .addClass("highlight-" + colorToHighlight);
+  } else {
+    checkStatus("white");
+
+    // Highlight white move
+    $board.find("." + squareClass).removeClass("highlight-white");
+    $board.find(".square-" + move.from).addClass("highlight-white");
+    squareToHighlight = move.to;
+    colorToHighlight = "white";
+
+    $board
+      .find(".square-" + squareToHighlight)
+      .addClass("highlight-" + colorToHighlight);
+  }
+}
