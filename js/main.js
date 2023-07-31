@@ -443,3 +443,20 @@ function makeBestMove(color) {
       .addClass("highlight-" + colorToHighlight);
   }
 }
+
+/*
+ * Plays Computer vs. Computer, starting with a given color.
+ */
+function compVsComp(color) {
+  if (!checkStatus({ w: "white", b: "black" }[color])) {
+    timer = window.setTimeout(function () {
+      makeBestMove(color);
+      if (color === "w") {
+        color = "b";
+      } else {
+        color = "w";
+      }
+      compVsComp(color);
+    }, 250);
+  }
+}
