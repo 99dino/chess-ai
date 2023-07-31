@@ -350,3 +350,20 @@ function checkStatus(color) {
   }
   return true;
 }
+
+function updateAdvantage() {
+  if (globalSum > 0) {
+    $("#advantageColor").text("Black");
+    $("#advantageNumber").text(globalSum);
+  } else if (globalSum < 0) {
+    $("#advantageColor").text("White");
+    $("#advantageNumber").text(-globalSum);
+  } else {
+    $("#advantageColor").text("Neither side");
+    $("#advantageNumber").text(globalSum);
+  }
+  $("#advantageBar").attr({
+    "aria-valuenow": `${-globalSum}`,
+    style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
+  });
+}
