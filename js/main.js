@@ -367,3 +367,36 @@ function updateAdvantage() {
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
   });
 }
+
+/*
+ * Calculates the best legal move for the given color.
+ */
+function getBestMove(game, color, currSum) {
+  positionCount = 0;
+
+  if (color === "b") {
+    var depth = parseInt($("#search-depth").find(":selected").text());
+  } else {
+    var depth = parseInt($("#search-depth-white").find(":selected").text());
+  }
+
+  var d = new Date().getTime();
+  var [bestMove, bestMoveValue] = minimax(
+    game,
+    depth,
+    Number.NEGATIVE_INFINITY,
+    Number.POSITIVE_INFINITY,
+    true,
+    currSum,
+    color
+  );
+  var d2 = new Date().getTime();
+  var moveTime = d2 - d;
+  var positionsPerS = (positionCount * 1000) / moveTime;
+
+  $("#position-count").text(positionCount);
+  $("#time").text(moveTime / 1000);
+  $("#positions-per-s").text(Math.round(positionsPerS));
+
+  return [bestMove, bestMoveValue];
+}
