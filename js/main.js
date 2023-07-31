@@ -148,7 +148,6 @@ var pstSelf = { w: pst_w, b: pst_b };
 function evaluateBoard(game, move, prevSum, color) {
   // console.log(game,game.in_checkmate());
   // console.log(color);
-  console.log(move);
 
   if (game.in_checkmate()) {
     // Opponent is in checkmate (good for us)
@@ -395,7 +394,7 @@ function getBestMove(game, color, currSum) {
   var positionsPerS = (positionCount * 1000) / moveTime;
 
   // document.querySelector("#position-count").textContent = positionCount;
-  // $("#position-count").text("hello");
+  $("#position-count").text("hello");
   $("#time").text(moveTime / 1000);
   $("#positions-per-s").text(Math.round(positionsPerS));
 
