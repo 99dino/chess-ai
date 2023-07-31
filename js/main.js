@@ -146,6 +146,10 @@ var pstSelf = { w: pst_w, b: pst_b };
  * using the material weights and piece square tables.
  */
 function evaluateBoard(game, move, prevSum, color) {
+  // console.log(game,game.in_checkmate());
+  // console.log(color);
+  console.log(move);
+
   if (game.in_checkmate()) {
     // Opponent is in checkmate (good for us)
     if (move.color === color) {
@@ -156,9 +160,11 @@ function evaluateBoard(game, move, prevSum, color) {
       return -(10 ** 8);
     }
   }
+
   if (game.in_draw() || game.in_threefold_repetition() || game.in_stalemate()) {
     return 0;
   }
+
   if (game.in_check()) {
     // Opponent is in check (good for us)
     if (move.color === color) {
@@ -169,6 +175,7 @@ function evaluateBoard(game, move, prevSum, color) {
       prevSum -= 50;
     }
   }
+
   // from (x,y)
   var from = [
     8 - parseInt(move.from[1]),
@@ -189,6 +196,7 @@ function evaluateBoard(game, move, prevSum, color) {
     //   move.captured = 'k_e';
     // }
   }
+
   if ("captured" in move) {
     // Opponent piece was captured (good for us)
     if (move.color === color) {
@@ -203,6 +211,7 @@ function evaluateBoard(game, move, prevSum, color) {
         pstSelf[move.color][move.captured][to[0]][to[1]];
     }
   }
+
   if (move.flags.includes("p")) {
     // NOTE: promote to queen for simplicity
     move.promotion = "q";
