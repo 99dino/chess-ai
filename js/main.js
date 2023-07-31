@@ -189,4 +189,18 @@ function evaluateBoard(game, move, prevSum, color) {
     //   move.captured = 'k_e';
     // }
   }
+  if ("captured" in move) {
+    // Opponent piece was captured (good for us)
+    if (move.color === color) {
+      prevSum +=
+        weights[move.captured] +
+        pstOpponent[move.color][move.captured][to[0]][to[1]];
+    }
+    // Our piece was captured (bad for us)
+    else {
+      prevSum -=
+        weights[move.captured] +
+        pstSelf[move.color][move.captured][to[0]][to[1]];
+    }
+  }
 }
