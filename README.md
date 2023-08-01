@@ -17,7 +17,3 @@ The AI uses the minimax algorithm, which is optimised by alpha-beta pruning.
 The evaluation function uses piece square tables adapted from Sunfish.py, and eliminates the need for nested loops by updating the sum based on each move instead of re-computing the sum of individual pieces at each leaf node.
 
 A global sum is used to keep track of black's evaluation score after each move, which is used to display the 'advantage' bar.
-
-![](https://komarev.com/ghpvc/?username=99dino)
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=99dino&show_icons=true&locale=en" alt="99dino" /></p>
