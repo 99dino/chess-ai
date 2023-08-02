@@ -394,7 +394,9 @@ function getBestMove(game, color, currSum) {
   var positionsPerS = (positionCount * 1000) / moveTime;
 
   // document.querySelector("#position-count").textContent = positionCount;
-  $("#position-count").text("hello");
+  $("#position-count").text(positionCount);
+  console.log(positionCount);
+
   $("#time").text(moveTime / 1000);
   $("#positions-per-s").text(Math.round(positionsPerS));
 
